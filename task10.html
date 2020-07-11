@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div>Football Match</div>  
+  <div>Argentina vs Brazil</div>  
+  <div id="score"></div>
+  <div id="msg">Still waiting for the first goal</div>
+  <button class="argentina" onclick="argentina()">Argentina scores a goal</button>
+  <br>
+  <button class="brazil"onclick="Brazil()">Brazil scores a goal</button>
+</body>
+<script>
+    var goalArgentina=0;
+    var goalBrazil=0;
+    var result=0;
+    var score=document.getElementById("score");
+    var ele1=document.getElementById("msg");
+    score.innerHTML=goalArgentina+"-"+goalBrazil;
+    ele1.className="initial"
+ 
+      function argentina()
+    { 
+        goalArgentina+=1;
+        score.innerHTML=goalArgentina+"-"+goalBrazil;
+     
+        if( goalArgentina==goalBrazil)
+        {
+            ele1.innerHTML="The scores are tied at "+goalArgentina+"-"+goalBrazil;
+            ele1.className="initial"
+        }
+        if( goalArgentina!=goalBrazil)
+        { 
+          result=Math.abs(goalArgentina-goalBrazil);
+          
+         if(goalArgentina>goalBrazil)
+         {
+            if(result==1)
+             {
+            ele1.innerHTML="Argentina is leading by "+result+" goal";
+             }
+             else
+             {
+                ele1.innerHTML="Argentina is leading by "+result+" goals";
+             }
+            ele1.className="argentina";}
+          else
+          {
+             if(result==1)
+             {
+          ele1.innerHTML="Brazil is leading by "+result+" goal";
+             }
+             else
+             {
+                ele1.innerHTML="Brazil is leading by "+result+" goals";  
+             }
+          ele1.className="brazil";
+          }
+        }
+       
+    
+     }
+    function Brazil()
+    { 
+        goalBrazil+=1;
+        score.innerHTML=goalArgentina+"-"+goalBrazil;
+
+
+      console.log(result)
+        if( goalArgentina==goalBrazil)
+        {
+            ele1.innerHTML="The scores are tied at "+goalArgentina+"-"+goalBrazil;
+            ele1.className="initial"
+        }
+        if( goalArgentina!=goalBrazil)
+        {  
+          result= Math.abs(goalBrazil-goalArgentina);
+          if(goalArgentina>goalBrazil)
+         {
+             if(result==1)
+             {
+            ele1.innerHTML="Argentina is leading by "+result+" goal";
+             }
+             else
+             {
+                ele1.innerHTML="Argentina is leading by "+result+" goals";
+             }
+            ele1.className="argentina";}
+          else
+          {
+             if(result==1)
+             {
+          ele1.innerHTML="Brazil is leading by "+result+" goal";
+             }
+             else
+             {
+                ele1.innerHTML="Brazil is leading by "+result+" goals";  
+             }
+          ele1.className="brazil";
+          }
+            
+        }
+      
+    }
+ </script>
+</html>
